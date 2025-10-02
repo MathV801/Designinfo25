@@ -1,29 +1,284 @@
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Ateez en feu au Stade de France !</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* Body et fond */
+body {
+  margin:0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(180deg, #2c2c2c, #FF7043);
+  color: #FFF;
+  overflow-x:hidden;
+}
 
-<section id="ateez-concert" style="background-color:#FFB74D; color:#111; padding:30px; border-radius:10px;">
-    <h2 style="font-family: 'Pacifico', cursive; color:#D32F2F; text-align:center; font-size:2.5em;">Ateez en feu au Stade de France !</h2>
+/* Zone titre */
+#title-zone {
+  position: relative;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: transparent;
+}
+h1 {
+  font-size: 3em;
+  font-weight: 900;
+  color: #FFD700;
+  text-align: center;
+  z-index: 2;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+  animation: pulse 2s infinite alternate;
+  position: relative;
+}
+@keyframes pulse{
+  0%{text-shadow:2px 2px 15px rgba(0,0,0,0.7);}
+  50%{text-shadow:2px 2px 25px rgba(0,0,0,0.9);}
+  100%{text-shadow:2px 2px 15px rgba(0,0,0,0.7);}
+}
 
-    <p style="font-family: 'Roboto', sans-serif; font-size:18px; line-height:1.6;">
-        Préparez-vous pour une soirée <strong><u>inoubliable</u></strong> ! Le groupe de K-pop coréen <em><u>Ateez</u></em>, reconnu pour ses performances spectaculaires et ses chorégraphies à couper le souffle, investit le <strong><u>Stade de France</u></strong> pour un concert exceptionnel. Attendez-vous à un show où lumières, effets pyrotechniques et énergie débordante se mêlent pour créer une expérience immersive unique.
-    </p>
+/* Étincelles */
+.spark{
+  position:absolute;
+  width:12px;
+  height:12px;
+  background:yellow;
+  border-radius:50%;
+  opacity:0.5;
+  animation:sparkle 1.5s infinite alternate;
+  z-index:1;
+}
+@keyframes sparkle{
+  0%{transform:scale(1);opacity:0.2;}
+  50%{transform:scale(2);opacity:1;}
+  100%{transform:scale(0.5);opacity:0.3;}
+}
 
-    <p style="font-family: 'Roboto', sans-serif; font-size:18px; line-height:1.6;">
-        Depuis ses débuts, <strong><u>Ateez</u></strong> a conquis le monde avec son style électrisant et ses albums à succès. Leur dernier opus, <em><u>“Eternal Odyssey”</u></em>, a déjà enflammé les charts et promet de rythmer cette soirée avec ses titres phares et quelques surprises exclusives pour leurs fans français. Les chorégraphies, pensées comme un voyage spatial, vous transporteront dans un univers futuriste où chaque pas raconte une histoire.
-    </p>
+/* Bandeau */
+#banner{
+  width: 100%;
+  height: 220px;
+  background-image: url('https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Concert.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-blend-mode: overlay;
+}
+#banner::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: linear-gradient(to top, rgba(255,255,255,0.05), rgba(44,44,44,0.8));
+}
 
-    <p style="font-family: 'Roboto', sans-serif; font-size:18px; line-height:1.6;">
-        <i class="fas fa-calendar-alt" style="color:#FFD700;"></i> <strong>Date :</strong> Samedi 16 novembre 2025<br>
-        <i class="fas fa-map-marker-alt" style="color:#FFD700;"></i> <strong>Lieu :</strong> <u>Stade de France</u>, Saint-Denis<br>
-        <i class="fas fa-clock" style="color:#FFD700;"></i> <strong>Horaire :</strong> Ouverture à 18h, concert à 20h<br>
-        <i class="fas fa-ticket-alt" style="color:#FFD700;"></i> <strong>Billets :</strong> disponibles <a href="https://www.stadefrance.com/billetterie" target="_blank" style="color:#D32F2F; font-weight:bold;"><u>en ligne ici</u></a>
-    </p>
+/* Contenu principal */
+#content{
+  padding:30px;
+  line-height:1.6;
+  font-size:18px;
+  max-width:800px;
+  margin:auto;
+  background: rgba(0,0,0,0.7);
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.5);
+  position:relative;
+  z-index:2;
+}
+strong, em, u{ color:#FFD700; }
+a{ color:#FFF; font-weight:bold; text-decoration:underline; }
 
-    <p style="font-family: 'Roboto', sans-serif; font-size:18px; line-height:1.6;">
-        Les fans auront également l'occasion de participer à des animations interactives : des banderoles lumineuses synchronisées avec le show, des projections holographiques et même quelques apparitions surprises du groupe via réalité augmentée. Chaque instant du concert est pensé pour créer un souvenir <strong><u>unique</u></strong> et mémorable.
-    </p>
+/* Canvas explosion */
+#canvas{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  pointer-events:none;
+}
 
-    <p style="font-family: 'Roboto', sans-serif; font-size:18px; line-height:1.6;">
-        Ne manquez pas cette chance de vivre un événement où la musique rencontre l’art visuel. <strong><u>Ateez</u></strong> vous promet une nuit pleine d’émotions, de danse et de lumière. <em>Réservez vos <u>billets</u> dès maintenant et préparez-vous à vivre une expérience légendaire qui restera gravée dans les mémoires !</em>
-    </p>
+/* Galerie immersive */
+#gallery{
+  max-width:800px;
+  margin:30px auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+}
+#gallery img{
+  width:90%;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.5);
+  transition: opacity 0.6s ease-in-out, transform 0.3s;
+  opacity:1;
+}
+#gallery img.fade-out{
+  opacity:0;
+}
+#gallery img:hover{
+  transform:scale(1.05);
+}
+#thumbnails{
+  display:flex;
+  gap:10px;
+  flex-wrap: wrap;
+  justify-content:center;
+  margin-top:10px;
+}
+#thumbnails img{
+  width:90px;
+  height:60px;
+  object-fit:cover;
+  cursor:pointer;
+  border-radius:5px;
+  border:2px solid transparent;
+  transition: transform 0.3s, border 0.3s;
+}
+#thumbnails img:hover{
+  transform:scale(1.1);
+  border-color:#FFD700;
+}
+/* Miniature active avec effet pulsant */
+#thumbnails img.active {
+  border-color:#FFD700;
+  transform: scale(1.15);
+}
+#thumbnails img.active.pulse {
+  animation: pulseThumb 1s infinite alternate;
+}
+@keyframes pulseThumb {
+  0% { transform: scale(1.15); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1.15); }
+}
+</style>
+</head>
+<body>
+
+<!-- Titre -->
+<div id="title-zone">
+  <h1 id="moving-title">ATEEZ en feu au Stade de France !</h1>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+  <div class="spark"></div>
+</div>
+
+<!-- Bandeau -->
+<div id="banner"></div>
+
+<!-- Contenu -->
+<section id="content">
+  <p><strong><u>Préparez-vous pour une soirée inoubliable !</u></strong> Le groupe de K-pop coréen <em><u>Ateez</u></em> investit le <strong><u>Stade de France</u></strong> pour un concert exceptionnel.</p>
+  <p>Depuis ses débuts, <strong><u>Ateez</u></strong> a conquis le monde avec son style électrisant et ses albums à succès. Leur dernier opus, <em><u>“Eternal Odyssey”</u></em>, promet de rythmer cette soirée avec ses titres phares et quelques surprises exclusives pour leurs fans français.</p>
+  <p><strong>Date :</strong> Samedi 16 novembre 2025<br>
+     <strong>Lieu :</strong> <u>Stade de France</u>, Saint-Denis<br>
+     <strong>Horaire :</strong> Ouverture à 18h, concert à 20h<br>
+     <strong>Billets :</strong> disponibles <a href="https://www.stadefrance.com/billetterie" target="_blank">en ligne ici</a></p>
+     <p>Retrouvez tous leurs titres sur <a href="https://www.youtube.com/@ATEEZofficial" target="_blank">leur chaîne YouTube officielle</a> !</p>
+
+  <p>Animations interactives : banderoles lumineuses, projections holographiques et apparitions surprises via réalité augmentée.</p>
+  <p><em>Ne manquez pas cette chance de vivre un événement où la musique rencontre l’art visuel !</em></p>
 </section>
+
+<!-- Galerie -->
+<div id="gallery">
+  <img id="gallery-image" src="https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Design.png">
+  <div id="thumbnails">
+    <img src="https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Design.png" data-index="0" class="active pulse">
+    <img src="https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Stade%20de%20France.jpg" data-index="1">
+    <img src="https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Stade%20de%20France%20au%20coucher%20du%20soleil.png" data-index="2">
+    <img src="https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/K-pop%20light%20stick%20.webp" data-index="3">
+    <img src="https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/eca1fc37-216b-4caf-b010-873d46901473.jpg" data-index="4">
+    <img src="https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Scène.png" data-index="5">
+  </div>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<script>
+// Animation titre
+const title=document.getElementById('moving-title');
+let x=0,y=0,dx=2,dy=1.5;
+function animateTitle(){
+  const zone=document.getElementById('title-zone');
+  const rect=zone.getBoundingClientRect();
+  const tw=title.offsetWidth, th=title.offsetHeight;
+  x+=dx; y+=dy;
+  if(x<0){x=0; dx*=-1;}
+  if(x+tw>rect.width){x=rect.width-tw; dx*=-1;}
+  if(y<0){y=0; dy*=-1;}
+  if(y+th>rect.height){y=rect.height-th; dy*=-1;}
+  title.style.left=x+'px';
+  title.style.top=y+'px';
+  requestAnimationFrame(animateTitle);
+}
+animateTitle();
+
+// Étincelles
+const sparks=document.querySelectorAll('.spark');
+sparks.forEach(s=>{
+  s.style.left=Math.random()*window.innerWidth+'px';
+  s.style.top=Math.random()*150+'px';
+  s.style.width=(8+Math.random()*8)+'px';
+  s.style.height=s.style.width;
+});
+setInterval(()=>{sparks.forEach(s=>{
+  s.style.left=Math.random()*window.innerWidth+'px';
+  s.style.top=Math.random()*150+'px';
+});},500);
+
+// Explosion texte
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+window.addEventListener("resize",()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+function explodeText(text,x,y){
+  const chars=text.split("");
+  const particles=chars.map(ch=>({char:ch,x:x,y:y,vx:(Math.random()-0.5)*8,vy:(Math.random()-1)*8,ay:0.3,opacity:1}));
+  function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.vy+=p.ay;
+      p.opacity-=0.02;
+      ctx.globalAlpha=p.opacity>0?p.opacity:0;
+      ctx.fillStyle="#FFD700";
+      ctx.fillText(p.char,p.x,p.y);
+    });
+    ctx.globalAlpha=1;
+    if(particles.some(p=>p.opacity>0)){requestAnimationFrame(animate);}
+  }
+  animate();
+}
+document.addEventListener("click",e=>{explodeText("ATEEZ Forever!", e.clientX, e.clientY);});
+
+// Galerie miniatures avec fade et pulsation
+const images=[
+  "https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Design.png",
+  "https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Stade%20de%20France.jpg",
+  "https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Stade%20de%20France%20au%20coucher%20du%20soleil.png",
+  "https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/K-pop%20light%20stick%20.webp",
+  "https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/eca1fc37-216b-4caf-b010-873d46901473.jpg",
+  "https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Scène.png"
+];
+const galleryImage=document.getElementById('gallery-image');
+const thumbnails=document.querySelectorAll('#thumbnails img');
+thumbnails.forEach(img => {
+  img.addEventListener('click', ()=>{
+    thumbnails.forEach(t=>t.classList.remove('active','pulse'));
+    img.classList.add('active','pulse');
+    galleryImage.classList.add('fade-out');
+    setTimeout(()=>{
+      galleryImage.src = images[parseInt(img.dataset.index)];
+      galleryImage.classList.remove('fade-out');
+    },300);
+  });
+});
+// Initialiser miniature active pulsante
+document.querySelector('#thumbnails img.active').classList.add('pulse');
+</script>
+</body>
+</html>
