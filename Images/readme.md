@@ -17,4 +17,5 @@ L'image eca1fc37-216b-4caf-b010-873d46901473.jpg a été faite avec : https://ww
 https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/eca1fc37-216b-4caf-b010-873d46901473.jpg
 
 L'image Stade de France au coucher du soleil.png a été faite avec : https://chatgpt.com. L'URL de l'image est : 
+https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/Stade%20de%20France%20au%20coucher%20du%20soleil.png
 
