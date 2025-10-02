@@ -1,1 +1,10 @@
-
+@media screen and (max-width: 300px) {
+    body {
+        background-color:olive;
+    }
+}
+@media screen and (min-width: 300px) {
+    body {
+      background-color:tomato;
+    }
+}
