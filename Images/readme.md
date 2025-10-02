@@ -12,3 +12,5 @@ https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/C
 
 L'image K-pop light stick .webp a été faite avec : https://www.craiyon.com/en . L'adresse URL de l'image est : 
 https://raw.githubusercontent.com/MathV801/Designinfo25/refs/heads/main/Images/K-pop%20light%20stick%20.webp
+
+L'image eca1fc37-216b-4caf-b010-873d46901473.jpg a été faite avec : https://www.canva.com/ai . L'adresse URL de l'image est : 
