@@ -11,7 +11,6 @@ Année universitaire **2025-2026**
 
 ### Description du projet
 J’ai créé un **visuel interactif** pour un **concert fictif du groupe de K-pop Ateez**.  
-Le projet combine un bandeau d’annonce, un texte de présentation et une galerie d’images intégrées en plusieurs pages avec menu de navigation.  
 
 L’objectif est de travailler sur la **lisibilité**, la **mise en valeur des visuels** et l’**expérience utilisateur**, tout en respectant les codes graphiques d’une **annonce de concert professionnelle**.
  
