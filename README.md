@@ -1,4 +1,4 @@
-# Design d'Information – Projet Ateez
+# Design d'Information 
 
 - **Adresse URL de l’espace GitHub** : [https://github.com/MathV801/Designinfo25](https://github.com/MathV801/Designinfo25)  
 - **Lien vers le site live (index.html)** : [https://mathv801.github.io/Designinfo25/](https://mathv801.github.io/Designinfo25/)
