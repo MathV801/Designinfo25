@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Titre qui vole et explose</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      position: absolute;
+      font-size: 3rem;
+      text-align: center;
+      cursor: default;
+      animation: blink 0.5s infinite alternate;
+      transition: transform 0.3s ease-out;
+    }
+
+    /* Clignotement */
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.2; }
+    }
+
+    /* Explosion secousse */
+    .explode {
+      animation: explodeAnim 0.5s ease-out;
+    }
+
+    @keyframes explodeAnim {
+      0%   { transform: scale(1) rotate(0deg); text-shadow: none; }
+      20%  { transform: scale(1.3) rotate(10deg); text-shadow: 0 0 10px red, 0 0 20px orange; }
+      40%  { transform: scale(0.8) rotate(-15deg); text-shadow: 0 0 15px yellow, 0 0 30px red; }
+      60%  { transform: scale(1.4) rotate(15deg); text-shadow: 0 0 20px orange, 0 0 40px yellow; }
+      80%  { transform: scale(0.9) rotate(-5deg); text-shadow: 0 0 5px red; }
+      100% { transform: scale(1) rotate(0deg); text-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="flyingTitle">💥 MON TITRE 💥</h1>
+
+  <script>
+    const title = document.getElementById("flyingTitle");
+    const speed = 2000; // vitesse du déplacement aléatoire (ms)
+
+    function randomMove() {
+      const maxX = window.innerWidth - title.offsetWidth;
+      const maxY = window.innerHeight - title.offsetHeight;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      title.style.left = x + "px";
+      title.style.top = y + "px";
+
+      // Explosion
+      title.classList.add("explode");
+      setTimeout(() => {
+        title.classList.remove("explode");
+      }, 500);
+    }
+
+    // Première position
+    randomMove();
+    // Déplacement régulier
+    setInterval(randomMove, speed);
+
+    // Ajuster si la fenêtre change
+    window.addEventListener("resize", randomMove);
+  </script>
+</body>
+</html>
